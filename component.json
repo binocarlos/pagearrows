@@ -1,0 +1,18 @@
+{
+  "name": "pagearrows",
+  "description": "navigation arrows for a pageturner book",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/emitter": "*",
+    "component/classes": "*",
+    "component/css": "*"
+  },
+  "development": {},
+  "styles": [],
+  "files": [],
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
