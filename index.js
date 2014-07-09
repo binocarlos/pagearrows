@@ -10,7 +10,7 @@ var defaults = {
 }
 
 function PageArrows (opts) {
-  if (!(this instanceof PageArrows)) return new PageArrows(book, opts);
+  if (!(this instanceof PageArrows)) return new PageArrows(opts);
   opts = opts || {}
   Object.keys(defaults || {}).forEach(function(key){
     if(!opts[key]){
