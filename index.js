@@ -25,12 +25,27 @@ function PageArrows (opts) {
 
 Emitter(PageArrows.prototype)
 
+PageArrows.prototype.setPage = function (index, total) {
+  css(this._arrows.left, {
+    display:index>0 ? 'block' : 'none'
+  })
+  css(this._arrows.right, {
+    display:index<total-1 ? 'block' : 'none'
+  })
+}
+
+var directions = {
+  left:-1,
+  right:1
+}
+
 PageArrows.prototype.createArrow = function (side) {
   var self = this;
   var arrow = document.createElement('div') 
   classes(arrow).add('pagearrows-arrow').add('pagearrows-' + side)
+  arrow.setAttribute('id', side)
   arrow.addEventListener('click', function(){
-    self.emit('click', side)
+    self.emit('click', side, directions[side])
   })
   var props = {
     position:'absolute',
@@ -40,6 +55,7 @@ PageArrows.prototype.createArrow = function (side) {
   }
   props[side] = inset + '%'
   css(arrow, props)
+  this.emit('render', arrow, side)
 }
 
 PageArrows.prototype.render = function () {

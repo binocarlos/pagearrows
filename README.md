@@ -1,79 +1,67 @@
-pagenav
-=======
+pagearrows
+==========
 
-navigation toolbar for a book
+navigation arrows for a book
 
 ## installation
 
 ```
-$ component install binocarlos/pagenav
+$ component install binocarlos/pagearrows
 ```
 
 ## example
 
 ```js
-var PageNav = require('pagenav')
-var nav = PageNav()
-nav.appendTo(document.querySelector('#nav'))
+var PageArrows = require('pagearrows')
+var arrows = PageArrows()
+arrows.appendTo(document.querySelector('#book'))
 
-var pages = [{
-	title:'Page 1'	
-},{
-	title:'Page 2'
-},{
-	title:'Page 3'
-}]
+// set the current page and the total pages to show/hide arrows
+// set page 4 of 10
+arrows.setPage(4, 10)
 
-// pages can be an array or just a number
-nav.setPages(pages)
+// hide/show arrows when the book changes
+book.on('view:index', arrows.setPage.bind(arrows))
 
-// change the HTML of a nav element
-nav.on('page', function(elem, index){
-	elem.innerHTML = '0' + index
+// change the HTML of an arrow element when its rendered
+arrows.on('render', function(elem, side){
+	elem.innerHTML = side + ' arrow'
 })
 
-nav.on('click', function(index){
-	// set the book to page 'index'	
+// turn the book when the arrows are clicked
+arrows.on('click', function(side, direction){
+	book.turnDirection(direction)
 })
-
-// set the highlighted page to 3
-nav.setPage(3)
 ```
 
 ## api
 
-### `var nav = PageNav()`
+### `var arrows = PageArrows()`
 
-Create a new navbar
+Create a new set of page arrows
 
-### `nav.setPages(pages)`
+### `arrows.setPage(index, totalPages)`
 
 Assign the number of pages for the navbar - pages can be an array or a number
 
-### `nav.setPage(index)`
-
-Set the currently active page of the navbar
-
 ## events
 
-### `nav.on('page', function(elem, index){})`
+### `arrows.on('render', function(elem, side){})`
 
-A page element has been rendered
+An arrow element has been created - side is 'left' or 'right'
 
-### `nav.on('click', function(index){})`
+### `arrows.on('click', function(side, direction){})`
 
-A page element has been clicked
+An arrow has been clicked - side is 'left' or 'right' - direction is -1 or 1
 
 ## css
 
-The DOM structure for the navbar:
+The DOM structure for the arrows:
 
 ```html
-<div class="pagenav-bar">
-	<div class="pagenav-page">1</div>
-	<div class="pagenav-page">2</div>
-	<div class="pagenav-page pagenav-active">3</div>
-	<div class="pagenav-page">4</div>
+<div class="pagearrows-container">
+	<div id="left" class="pagearrows-arrow"></div>
+	<div id="right" class="pagearrows-arrow"></div>
 </div>
 ```
 
