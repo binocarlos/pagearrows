@@ -56,6 +56,7 @@ PageArrows.prototype.createArrow = function (side) {
   props[side] = this._opts.inset + '%'
   css(arrow, props)
   this.emit('render', arrow, side)
+  return arrow
 }
 
 PageArrows.prototype.render = function () {
