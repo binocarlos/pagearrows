@@ -76,3 +76,9 @@ PageArrows.prototype.appendTo = function (target) {
   target.appendChild(arrows.left)
   target.appendChild(arrows.right)
 }
+
+PageArrows.prototype.remove = function () {
+  var arrows = this.render()
+  arrows.left.parentNode.removeChild(arrows.left)
+  arrows.right.parentNode.removeChild(arrows.right)
+}
