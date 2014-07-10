@@ -44,6 +44,10 @@ Create a new set of page arrows
 
 Assign the number of pages for the navbar - pages can be an array or a number
 
+### `arrows.appendTo(elem)`
+
+Append the 2 arrow controls to the given parent element
+
 ## events
 
 ### `arrows.on('render', function(elem, side){})`
@@ -56,13 +60,11 @@ An arrow has been clicked - side is 'left' or 'right' - direction is -1 or 1
 
 ## css
 
-The DOM structure for the arrows:
+The DOM structure for the arrows - the two arrows are appended to the element passed to appentTo
 
 ```html
-<div class="pagearrows-container">
-	<div id="left" class="pagearrows-arrow"></div>
-	<div id="right" class="pagearrows-arrow"></div>
-</div>
+<div id="left" class="pagearrows-arrow"></div>
+<div id="right" class="pagearrows-arrow"></div>
 ```
 
 ## licence

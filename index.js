@@ -60,26 +60,19 @@ PageArrows.prototype.createArrow = function (side) {
 }
 
 PageArrows.prototype.render = function () {
-  if(this._element){
-    return this._element
+  if(this._arrows){
+    return this._arrows
   }
-  this._element = document.createElement('div')
-  classes(this._element).add('pagearrows-container')
-  css(this._element, {
-    position:'absolute',
-    width:'100%',
-    height:'100%'
-  })
   this._arrows = {
     left:this.createArrow('left'),
     right:this.createArrow('right')
   }
-  this._element.appendChild(this._arrows.left)
-  this._element.appendChild(this._arrows.right)
-  return this._element
+  return this._arrows
 }
 
 PageArrows.prototype.appendTo = function (target) {
   if (typeof target === 'string') target = document.querySelector(target)
-  target.appendChild(this.render())
+  var arrows = this.render()
+  target.appendChild(arrows.left)
+  target.appendChild(arrows.right)
 }
