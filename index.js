@@ -53,7 +53,7 @@ PageArrows.prototype.createArrow = function (side) {
     height:this._opts.height + '%',
     top:(50 - (this._opts.height/2)) + '%'
   }
-  props[side] = inset + '%'
+  props[side] = this._opts.inset + '%'
   css(arrow, props)
   this.emit('render', arrow, side)
 }
