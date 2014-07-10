@@ -26,6 +26,9 @@ function PageArrows (opts) {
 Emitter(PageArrows.prototype)
 
 PageArrows.prototype.setPage = function (index, total) {
+  if(!this._arrows){
+    return
+  }
   css(this._arrows.left, {
     display:index>0 ? 'block' : 'none'
   })
