@@ -47,6 +47,7 @@ PageArrows.prototype.createArrow = function (side) {
   arrow.addEventListener('click', function(){
     self.emit('click', side, directions[side])
   })
+  arrow.style.cursor = 'pointer'
   var props = {
     position:'absolute',
     width:this._opts.width + '%',
