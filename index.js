@@ -40,6 +40,11 @@ PageArrows.prototype.createArrow = function (side) {
   return arrow
 }
 
+PageArrows.prototype.toggle = function (mode) {
+  this._arrows.left.style.display = mode ? 'block' : 'none'
+  this._arrows.right.style.display = mode ? 'block' : 'none'
+}
+
 PageArrows.prototype.render = function () {
   if(this._arrows){
     return this._arrows
