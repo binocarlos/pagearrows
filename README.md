@@ -36,25 +36,25 @@ arrows.on('click', function(side, direction){
 
 ## api
 
-### `var arrows = PageArrows()`
+#### `var arrows = PageArrows()`
 
 Create a new set of page arrows
 
-### `arrows.setPage(index, totalPages)`
+#### `arrows.setPage(index, totalPages)`
 
 Assign the number of pages for the navbar - pages can be an array or a number
 
-### `arrows.appendTo(elem)`
+#### `arrows.appendTo(elem)`
 
 Append the 2 arrow controls to the given parent element
 
 ## events
 
-### `arrows.on('render', function(elem, side){})`
+#### `arrows.on('render', function(elem, side){})`
 
 An arrow element has been created - side is 'left' or 'right'
 
-### `arrows.on('click', function(side, direction){})`
+#### `arrows.on('click', function(side, direction){})`
 
 An arrow has been clicked - side is 'left' or 'right' - direction is -1 or 1
 
