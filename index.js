@@ -32,9 +32,15 @@ PageArrows.prototype.createArrow = function (side) {
   var arrow = document.createElement('div') 
   classes(arrow).add('pagearrows-arrow').add('pagearrows-' + side)
   arrow.setAttribute('id', side)
-  arrow.addEventListener('click', function(){
+  function clickHandler(){
     self.emit('click', side, directions[side])
-  })
+  }
+  if (arrow.addEventListener) {
+    arrow.addEventListener("click", clickHandler, false);
+  }
+  else {
+    arrow.attachEvent("onclick", clickHandler);
+  }
   arrow.style.cursor = 'pointer'
   this.emit('render', arrow, side)
   return arrow
